@@ -56,6 +56,7 @@ if __name__ == "__main__":
     elif choice == 'I': 
         # input from keyboard
         n = int(input())
+        input() #empty line !?
         data = list(map(int, input().split()))
         main(data)
         print("finished")
