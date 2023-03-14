@@ -52,9 +52,12 @@ if __name__ == "__main__":
     # add another input for I or F 
     # first two tests are from keyboard, third test is from a file
     if choice[:1] == 'F': 
-        pass
+        filename = input()
+        f = open("tests/" + filename, "r")
+        n = int(f.readline())
+        data = list(map(int, f.readline().split()))
     elif choice[:1] == 'I': 
         # input from keyboard
         n = int(input())
         data = list(map(int, input().split()))
-        main(data)
+    main(data)
