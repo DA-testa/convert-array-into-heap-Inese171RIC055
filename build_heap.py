@@ -57,6 +57,7 @@ def main():
 
 if __name__ == "__main__":
     choice = input("") 
+    print(choice)
     if choice == 'F': 
         filename = input('') 
         with open(filename) as file: 
