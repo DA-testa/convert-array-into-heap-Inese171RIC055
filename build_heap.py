@@ -31,41 +31,31 @@ def build_heap(data):
     return swaps
 
 
-def main():
-    
-    # TODO : add input and corresponding checks
-    # add another input for I or F 
-    # first two tests are from keyboard, third test is from a file
-
-
-    # input from keyboard
-    n = int(input())
-    data = list(map(int, input().split()))
-
+def main(data):
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n
 
     # calls function to assess the data 
     # and give back all swaps
     swaps = build_heap(data)
-
     # TODO: output how many swaps were made, 
     # this number should be less than 4n (less than 4*len(data))
-
-
-    # output all swaps
     print(len(swaps))
+    # output all swaps
     for i, j in swaps:
         print(i, j)
 
 
 if __name__ == "__main__":
-    choice = input("") 
-    print(choice)
+    choice = input("")
+    # TODO : add input and corresponding checks
+    # add another input for I or F 
+    # first two tests are from keyboard, third test is from a file
     if choice == 'F': 
-        filename = input('') 
-        with open(filename) as file: 
-            for line in file: 
-                print(find_mismatch(line.strip())) 
+        pass
     elif choice == 'I': 
-        main()
+        # input from keyboard
+        n = int(input())
+        data = list(map(int, input().split()))
+        main(data)
+        print("finished")
