@@ -51,9 +51,9 @@ if __name__ == "__main__":
     # TODO : add input and corresponding checks
     # add another input for I or F 
     # first two tests are from keyboard, third test is from a file
-    if choice == 'F': 
+    if choice[:1] == 'F': 
         pass
-    elif choice == 'I': 
+    elif choice[:1] == 'I': 
         # input from keyboard
         n = int(input())
         input() #empty line !?
