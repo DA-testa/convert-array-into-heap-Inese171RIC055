@@ -2,18 +2,22 @@
 
 def sift_down(i, n, data, swaps):
     min_idx = i
-    left_child = 2 * i + 1
-    right_child = 2 * i + 2
-    
-    if left_child < n and data[left_child] < data[min_idx]:
-        min_idx = left_child
-    if right_child < n and data[right_child] < data[min_idx]:
-        min_idx = right_child
-        
-    if i != min_idx:
-        data[i], data[min_idx] = data[min_idx], data[i]
-        swaps.append((i, min_idx))
-        sift_down(min_idx, n, data, swaps)
+    left_child = (i << 1) + 1
+    right_child = (i << 1) + 2
+
+    while left_child < n:
+        if data[left_child] < data[min_idx]:
+            min_idx = left_child
+        if right_child < n and data[right_child] < data[min_idx]:
+            min_idx = right_child
+        if i != min_idx:
+            data[i], data[min_idx] = data[min_idx], data[i]
+            swaps.append((i, min_idx))
+            i = min_idx
+            left_child = (i << 1) + 1
+            right_child = (i << 1) + 2
+        else:
+            break
 
 def build_heap(data):
     n = len(data)
