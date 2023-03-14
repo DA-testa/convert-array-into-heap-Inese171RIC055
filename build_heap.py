@@ -1,11 +1,28 @@
 # python3
 
+def sift_down(i, n, data, swaps):
+    min_idx = i
+    left_child = 2 * i + 1
+    right_child = 2 * i + 2
+    
+    if left_child < n and data[left_child] < data[min_idx]:
+        min_idx = left_child
+    if right_child < n and data[right_child] < data[min_idx]:
+        min_idx = right_child
+        
+    if i != min_idx:
+        data[i], data[min_idx] = data[min_idx], data[i]
+        swaps.append((i, min_idx))
+        sift_down(min_idx, n, data, swaps)
 
 def build_heap(data):
+    n = len(data)
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
 
+    for i in range(n//2, -1, -1):
+        sift_down(i, n, data, swaps)
 
     return swaps
 
@@ -39,4 +56,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    choice = input("") 
+    if choice == 'F': 
+        filename = input('') 
+        with open(filename) as file: 
+            for line in file: 
+                print(find_mismatch(line.strip())) 
+    elif choice == 'I': 
+        main()
